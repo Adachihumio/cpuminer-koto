@@ -60,6 +60,7 @@ libjansson-dev
 libgmp-dev
 libcurl4-openssl-dev
 libssl-dev
+libgmp-dev
 pthreads
 zlib
 
@@ -143,7 +144,13 @@ The following tips may be useful for older AMD CPUs.
 AMD CPUs older than Steamroller, including Athlon x2 and Phenom II x4, are
 not supported by cpuminer-koto due to an incompatible implementation of SSE2
 on these CPUs. In rare cases, the miner might crash with an invalid instruction.
-As a workaround, users are recommended to use an unoptimized miner such as cpuminer-multi.
+
+If your system is not supported by cpuminer-koto, the recommended miner for
+the Koto cryptocurrency is cpuminer-yescrypt - made by koto-dev -  which you can 
+obtain from https://github.com/koto-dev/cpuminer-yescrypt by koto-dev.
+
+Alternatively, users may employ an unoptimized miner such as cpuminer-multi, but at 
+the trade-off of reduced performance.
 
 Some users with AMD CPUs without AES_NI have reported problems compiling
 with build.sh or "-march=native". Problems have included compile errors

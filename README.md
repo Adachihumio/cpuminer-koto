@@ -1,3 +1,6 @@
+`cpuminer-koto`
+---------------
+
 `cpuminer-koto` is a fork of `cpuminer-opt` by Jay D Dee, which itself is a
 fork of `cpuminer-multi` by TPruvot with a list of optimizations added on top of
 it. The optimizations have been imported from other miners developped by lucas
@@ -7,13 +10,6 @@ Jerônimo Cryptão performed benchmarks and extracted relevant functionality,
 that is required for Koto mining, while pruning the remaining bits of the client
 in order for the resulting miner to be as light as possible.
 
-
-All of the code is believed to be open and free. If anyone has a claim to any of
-it, please, post your case on the corresponding Bitcoin Talk forum [https://bitcointalk.org/index.php?topic=1326803.0](thread) or
-contact the author via [email](mailto://crypto.jeronimo@gmail.com).
-
-
-See file RELEASE_NOTES for change log and compile instructions.
 
 Requirements
 ------------
@@ -29,6 +25,10 @@ performance.
 
 ARM CPUs are *not* supported.
 
+If your system is not supported by `cpuminer-koto`, the recommended miner for
+the Koto cryptocurrency is [`cpuminer-yescrypt`](https://github.com/koto-dev/cpuminer-yescrypt) 
+by koto-dev.
+
 2. A 64-bit Linux OS. Ubuntu- and Fedora-based distributions, including Mint and
 CentOS are known to work and have all dependencies in their repositories.
 Others may work but may require more effort.
@@ -41,8 +41,23 @@ MacOS, OSx is not supported.
 Installation
 ------------
 
-On Linux-based systems, simply run `./build.sh` from the root directory of the
-`cpuminer-koto` repository.
+For Ubuntu-based systems, the following list of dependencies need to be satisifed:
+
+```
+sudo apt-get install \
+	build-essential \
+	libssl-dev \
+	libcurl4-openssl-dev \
+	libjansson-dev \
+	libgmp-dev \
+	autoconf \
+	automake
+```
+
+For other Linux-based systems, such as Fedora, Arch etc., the equivalent packages need to
+be obtained and installed, accordingly.
+
+Then, one needs to simply run `./build.sh` from the root directory of the `cpuminer-koto` repository.
 
 Usage
 -----
@@ -100,8 +115,7 @@ Errata
 
 AMD CPUs older than Piledriver, including Athlon x2 and Phenom II x4, are not
 supported by `cpuminer-koto` due to an incompatible implementation of SSE2 on
-these CPUs. Some algos may crash the miner with an invalid instruction.
-Users are recommended to use an unoptimized miner such as cpuminer-multi.
+these CPUs.
 
 Bugs
 ----
