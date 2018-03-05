@@ -2542,7 +2542,7 @@ void strhide(char *s)
 void parse_arg(int key, char *arg )
 {
 	char *p;
-	int v, i;
+	int v;
 	uint64_t ul;
 	double d;
 

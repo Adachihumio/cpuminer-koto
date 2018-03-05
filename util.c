@@ -2322,7 +2322,6 @@ void print_hash_tests(void)
 	uchar *scratchbuf = NULL;
 	char hash[128], s[80];
 	char buf[192] = { 0 };
-        int algo;
 	scratchbuf = (uchar*) calloc(128, 1024);
 
 	printf(CL_WHT "CPU HASH ON EMPTY BUFFER RESULTS:" CL_N "\n\n");
