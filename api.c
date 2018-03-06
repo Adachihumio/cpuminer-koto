@@ -523,7 +523,7 @@ static void api()
 	const char *addr = opt_api_allow;
 	unsigned short port = (unsigned short) opt_api_listen; // 4048
 	char buf[MYBUFSIZ];
-	int c, n, bound;
+	int n, bound;
 	char *connectaddr;
 	char *binderror;
 	char group;
@@ -531,7 +531,6 @@ static void api()
 	struct sockaddr_in serv;
 	struct sockaddr_in cli;
 	socklen_t clisiz;
-	bool addrok = false;
 	long long counter;
 	char *result;
 	char *params;
@@ -558,6 +557,7 @@ static void api()
 	*apisock = socket(AF_INET, SOCK_STREAM, 0);
 	if (*apisock == INVSOCK) {
 		applog(LOG_ERR, "API initialisation failed (%s)%s", strerror(errno), UNAVAILABLE);
+		free(apisock);
 		return;
 	}
 
@@ -566,6 +566,7 @@ static void api()
 	serv.sin_addr.s_addr = inet_addr(addr);
 	if (serv.sin_addr.s_addr == (in_addr_t)INVINETADDR) {
 		applog(LOG_ERR, "API initialisation 2 failed (%s)%s", strerror(errno), UNAVAILABLE);
+		free(apisock);
 		return;
 	}
 
@@ -620,6 +621,7 @@ static void api()
 
 	counter = 0;
 	while (bye == 0) {
+		int c;
 		counter++;
 
 		clisiz = sizeof(cli);
@@ -631,14 +633,13 @@ static void api()
 			return;
 		}
 
-		addrok = check_connect(&cli, &connectaddr, &group);
+		bool addrok = check_connect(&cli, &connectaddr, &group);
 		if (opt_debug && opt_protocol)
 			applog(LOG_DEBUG, "API: connection from %s - %s",
 				connectaddr, addrok ? "Accepted" : "Ignored");
 
 		if (addrok) {
 			bool fail;
-			char *wskey = NULL;
 			n = recv(c, &buf[0], SOCK_REC_BUFSZ, 0);
 
 			fail = SOCKETFAIL(n);
@@ -658,10 +659,11 @@ static void api()
 
 			if (!fail) {
 				char *msg = NULL;
+				char *wskey = NULL;
 				/* Websocket requests compat. */
 				if ((msg = strstr(buf, "GET /")) && strlen(msg) > 5) {
 					char cmd[256] = { 0 };
-					sscanf(&msg[5], "%s\n", cmd);
+					sscanf(&msg[5], "%255s\n", cmd);
 					params = strchr(cmd, '/');
 					if (params)
 						*(params++) = '|';

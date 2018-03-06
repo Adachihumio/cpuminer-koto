@@ -66,9 +66,12 @@ static uint32_t linux_cpufreq(int core)
 	if (!fd)
 		return freq;
 
-	if (!fscanf(fd, "%d", &freq))
+	if (!fscanf(fd, "%d", &freq)) {
+    fclose(fd);
 		return freq;
+  }
 
+  fclose(fd);
 	return freq;
 }
 
@@ -243,7 +246,7 @@ void cpu_getmodelid(char *outbuf, size_t maxsz)
    fclose(fd);
 #endif
 }
- 
+
 // http://en.wikipedia.org/wiki/CPUID
 
 // CPUID commands
@@ -271,7 +274,7 @@ void cpu_getmodelid(char *outbuf, size_t maxsz)
 #define SSE42_Flag    (1<<20)
 
 #define SSE_Flag      (1<<25) // EDX
-#define SSE2_Flag     (1<<26) 
+#define SSE2_Flag     (1<<26)
 
 #define AVX2_Flag     (1<< 5) // ADV EBX
 #define SHA_Flag      (1<<29)
@@ -306,7 +309,7 @@ static inline bool has_sse2_()
 #endif
 }
 
-bool has_sse2() { return has_sse2_(); } 
+bool has_sse2() { return has_sse2_(); }
 
 // nehalem and above, no AVX1 on nehalem
 static inline bool has_aes_ni_()
@@ -457,7 +460,7 @@ void cpu_bestfeature(char *outbuf, size_t maxsz)
               sprintf(outbuf, "SSE");
         else
               *outbuf = '\0';
-           
+
 #endif
 }
 
@@ -478,5 +481,5 @@ void cpu_brand_string( char* s )
         memcpy( s + 32, cpu_info, sizeof(cpu_info) );
     }
 #endif
-}    
+}
 

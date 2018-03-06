@@ -17,10 +17,10 @@ supported by cpuminer-koto due to an incompatible implementation of SSE2 on
 these CPUs. In rare cases, the miner might crash with an invalid instruction.
 
 If your system is not supported by cpuminer-koto, the recommended miner for
-the Koto cryptocurrency is cpuminer-yescrypt - made by koto-dev -  which you can 
+the Koto cryptocurrency is cpuminer-yescrypt - made by koto-dev -  which you can
 obtain from https://github.com/koto-dev/cpuminer-yescrypt by koto-dev.
 
-Alternatively, users may employ an unoptimized miner such as cpuminer-multi, but at 
+Alternatively, users may employ an unoptimized miner such as cpuminer-multi, but at
 the trade-off of reduced performance.
 
 Exe name                Compile flags              Arch name
@@ -35,6 +35,9 @@ If you have found this software more useful than other alternatives available,
 please, feel free to donate:
 
 KOTO: k1GHJkvxLQocac94MFBbKAsdUvNbFdFWUyE
+XEM: NB3NDX-RBOLEJ-LPT6MP-6JAD4E-ZEOX5T-FLDG3W-R7JJ
+MONA: MPq54r8XTwtB2qmAeVqayy27ZCaPt845B6
+NEET: NYaP7eEsDdALK5eHPZkYk1d8pBLyGvq9L1
 BTC: 1HKWV5t4KGUwybVHNUaaY9TXFSoBvoaSiP
 ETH: 0xF17e490B391E17BE2D14BFfaA831ab8966d2e689
 LTC: LNSEJzT8byYasZGd4f9c3DgtMbmexnXHdy

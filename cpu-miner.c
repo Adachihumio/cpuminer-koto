@@ -414,9 +414,9 @@ static bool get_mininginfo(CURL *curl, struct work *work)
 			restart_threads();
 			if (!opt_quiet) {
 			   char netinfo[64] = { 0 };
-			   char srate[32] = { 0 };
 			   sprintf(netinfo, "diff %.2f", net_diff);
 			   if (net_hashrate) {
+        char srate[32] = { 0 };
 				format_hashrate(net_hashrate, srate);
 				strcat(netinfo, ", net ");
 				strcat(netinfo, srate);
@@ -1074,7 +1074,6 @@ bool jr2_submit_getwork_result( CURL *curl, struct work *work )
 char* std_malloc_txs_request( struct work *work )
 {
   char *req;
-  json_t *val;
   char data_str[2 * sizeof(work->data) + 1];
   int i;
 
@@ -1084,6 +1083,7 @@ char* std_malloc_txs_request( struct work *work )
   if ( work->workid )
   {
     char *params;
+    json_t *val;
     val = json_object();
     json_object_set_new( val, "workid", json_string( work->workid ) );
     params = json_dumps( val, 0 );
@@ -1967,14 +1967,13 @@ static void *miner_thread( void *userdata )
        // display hashrate
        if ( !opt_quiet )
        {
-          char hc[16];
-          char hr[16];
-          char hc_units[2] = {0,0};
-          char hr_units[2] = {0,0};
           double hashcount = thr_hashcount[thr_id];
           double hashrate  = thr_hashrates[thr_id];
           if ( hashcount )
           {
+             char hc[16], hr[16];
+             char hc_units[2] = {0,0};
+             char hr_units[2] = {0,0};
              scale_hash_for_display( &hashcount, hc_units );
              scale_hash_for_display( &hashrate,  hr_units );
              if ( hc_units[0] )
@@ -2127,7 +2126,6 @@ start:
       {
  	 bool rc;
 	 char *start_job_id;
-	 double start_diff = 0.0;
 	 json_t *res, *soval;
 	 res = json_object_get(val, "result");
 	 if (!jsonrpc_2)
@@ -2143,6 +2141,7 @@ start:
 	   rc = work_decode(res, &g_work);
 	 if (rc)
          {
+           double start_diff = 0.0;
            bool newblock = g_work.job_id && strcmp(start_job_id, g_work.job_id);
 	   newblock |= (start_diff != net_diff); // the best is the height but... longpoll...
            if (newblock)
@@ -2888,10 +2887,9 @@ void parse_config(json_t *config, char *ref)
 
 static void parse_cmdline(int argc, char *argv[])
 {
-   int key;
-
    while (1)
    {
+    int key;
 #if HAVE_GETOPT_LONG
 	key = getopt_long(argc, argv, short_options, options, NULL);
 #else
@@ -2961,6 +2959,9 @@ static void show_credits()
    printf("     An optimized Koto CPU miner with AES_NI and AVX2 and SHA extensions.\n\n");
    printf("     Feel free to leave me a tip if you're feeling generous :)\n");
    printf("       KOTO: k1GHJkvxLQocac94MFBbKAsdUvNbFdFWUyE\n");
+   printf("       XEM: NB3NDX-RBOLEJ-LPT6MP-6JAD4E-ZEOX5T-FLDG3W-R7JJ\n");
+   printf("       MONA: MPq54r8XTwtB2qmAeVqayy27ZCaPt845B6\n");
+   printf("       NEET: NYaP7eEsDdALK5eHPZkYk1d8pBLyGvq9L1\n");
    printf("       BTC: 1HKWV5t4KGUwybVHNUaaY9TXFSoBvoaSiP\n");
    printf("       ETH: 0xF17e490B391E17BE2D14BFfaA831ab8966d2e689\n");
    printf("       LTC: LNSEJzT8byYasZGd4f9c3DgtMbmexnXHdy\n");

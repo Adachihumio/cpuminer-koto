@@ -26,7 +26,7 @@ performance.
 ARM CPUs are *not* supported.
 
 If your system is not supported by `cpuminer-koto`, the recommended miner for
-the Koto cryptocurrency is [`cpuminer-yescrypt`](https://github.com/koto-dev/cpuminer-yescrypt) 
+the Koto cryptocurrency is [`cpuminer-yescrypt`](https://github.com/koto-dev/cpuminer-yescrypt)
 by koto-dev.
 
 2. A 64-bit Linux OS. Ubuntu- and Fedora-based distributions, including Mint and
@@ -132,6 +132,12 @@ Donations
 `cpuminer-koto` has no fees, but if you're feeling generous, any donations are warmly welcome:
 
  KOTO: k1GHJkvxLQocac94MFBbKAsdUvNbFdFWUyE
+
+ XEM: NB3NDX-RBOLEJ-LPT6MP-6JAD4E-ZEOX5T-FLDG3W-R7JJ
+
+ MONA: MPq54r8XTwtB2qmAeVqayy27ZCaPt845B6
+
+ NEET: NYaP7eEsDdALK5eHPZkYk1d8pBLyGvq9L1
 
  BTC: 1HKWV5t4KGUwybVHNUaaY9TXFSoBvoaSiP
 
