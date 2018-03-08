@@ -35,7 +35,7 @@ If you have found this software more useful than other alternatives available,
 please, feel free to donate:
 
 KOTO: k1GHJkvxLQocac94MFBbKAsdUvNbFdFWUyE
-XEM: NB3NDX-RBOLEJ-LPT6MP-6JAD4E-ZEOX5T-FLDG3W-R7JJ
+XEM: NB3NDXRBOLEJLPT6MP6JAD4EZEOX5TFLDG3WR7JJ
 MONA: MPq54r8XTwtB2qmAeVqayy27ZCaPt845B6
 NEET: NYaP7eEsDdALK5eHPZkYk1d8pBLyGvq9L1
 BTC: 1HKWV5t4KGUwybVHNUaaY9TXFSoBvoaSiP

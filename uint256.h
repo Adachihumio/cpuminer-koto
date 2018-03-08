@@ -52,8 +52,7 @@ public:
         base_uint ret;
         for (int i = 0; i < WIDTH; i++)
             ret.pn[i] = ~pn[i];
-        ret++;
-        return ret;
+        return ++ret;
     }
 
     double getdouble() const
@@ -184,8 +183,8 @@ public:
     {
         // prefix operator
         int i = 0;
-        while (++pn[i] == 0 && i < WIDTH-1)
-            i++;
+        while (i < WIDTH-1 && ++pn[i] == 0)
+            ++i;
         return *this;
     }
 
@@ -201,8 +200,8 @@ public:
     {
         // prefix operator
         int i = 0;
-        while (--pn[i] == -1 && i < WIDTH-1)
-            i++;
+        while (i < WIDTH-1 && --pn[i] == -1)
+            ++i;
         return *this;
     }
 
@@ -310,7 +309,7 @@ public:
 
         // skip leading spaces
         while (isspace(*psz))
-            psz++;
+            ++psz;
 
         // skip 0x
         if (psz[0] == '0' && tolower(psz[1]) == 'x')
@@ -320,8 +319,8 @@ public:
         static const unsigned char phexdigit[256] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0,1,2,3,4,5,6,7,8,9,0,0,0,0,0,0, 0,0xa,0xb,0xc,0xd,0xe,0xf,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0,0xa,0xb,0xc,0xd,0xe,0xf,0,0,0,0,0,0,0,0,0 };
         const char* pbegin = psz;
         while (phexdigit[(unsigned char)*psz] || *psz == '0')
-            psz++;
-        psz--;
+            ++psz;
+        --psz;
         unsigned char* p1 = (unsigned char*)pn;
         unsigned char* pend = p1 + WIDTH * 4;
         while (psz >= pbegin && p1 < pend)
@@ -330,7 +329,7 @@ public:
             if (psz >= pbegin)
             {
                 *p1 |= (phexdigit[(unsigned char)*psz--] << 4);
-                p1++;
+                ++p1;
             }
         }
     }
@@ -655,17 +654,17 @@ inline int Testuint256AdHoc(std::vector<std::string> vArg)
 
 
     printf("%s\n", g.ToString().c_str());
-    g--;  printf("g--\n");
+    --g;  printf("--g\n");
     printf("%s\n", g.ToString().c_str());
-    g--;  printf("g--\n");
+    --g;  printf("--g\n");
     printf("%s\n", g.ToString().c_str());
-    g++;  printf("g++\n");
+    ++g;  printf("++g\n");
     printf("%s\n", g.ToString().c_str());
-    g++;  printf("g++\n");
+    ++g;  printf("++g\n");
     printf("%s\n", g.ToString().c_str());
-    g++;  printf("g++\n");
+    ++g;  printf("++g\n");
     printf("%s\n", g.ToString().c_str());
-    g++;  printf("g++\n");
+    ++g;  printf("++g\n");
     printf("%s\n", g.ToString().c_str());
 
 
@@ -706,27 +705,27 @@ inline int Testuint256AdHoc(std::vector<std::string> vArg)
     a.pn[4] = 9;
 
     printf("%s\n", a.ToString().c_str());
-    a++;
+    ++a;
     printf("%s\n", a.ToString().c_str());
-    a++;
+    ++a;
     printf("%s\n", a.ToString().c_str());
-    a++;
+    ++a;
     printf("%s\n", a.ToString().c_str());
-    a++;
+    ++a;
     printf("%s\n", a.ToString().c_str());
 
-    a--;
+    --a;
     printf("%s\n", a.ToString().c_str());
-    a--;
+    --a;
     printf("%s\n", a.ToString().c_str());
-    a--;
+    --a;
     printf("%s\n", a.ToString().c_str());
     uint256 d = a--;
     printf("%s\n", d.ToString().c_str());
     printf("%s\n", a.ToString().c_str());
-    a--;
+    --a;
     printf("%s\n", a.ToString().c_str());
-    a--;
+    --a;
     printf("%s\n", a.ToString().c_str());
 
     d = a;

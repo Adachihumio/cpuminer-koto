@@ -1667,7 +1667,7 @@ err_out:
 static uint32_t getblocheight(struct stratum_ctx *sctx)
 {
 	uint32_t height = 0;
-	uint8_t hlen = 0, *p, *m;
+	uint8_t *p, *m;
 
 	// find 0xffff tag
 	p = (uint8_t*) sctx->job.coinbase + 32;
@@ -1675,7 +1675,7 @@ static uint32_t getblocheight(struct stratum_ctx *sctx)
 	while (*p != 0xff && p < m) p++;
 	while (*p == 0xff && p < m) p++;
 	if (*(p-1) == 0xff && *(p-2) == 0xff) {
-		p++; hlen = *p;
+		uint8_t hlen = *(++p);
 		p++; height = le16dec(p);
 		p += 2;
 		switch (hlen) {

@@ -2330,11 +2330,11 @@ void std_stratum_gen_work( struct stratum_ctx *sctx, struct work *g_work )
 
    if ( stratum_diff != sctx->job.diff )
    {
-     char sdiff[32] = { 0 };
      // store for api stats
      stratum_diff = sctx->job.diff;
      if ( opt_showdiff && g_work->targetdiff != stratum_diff )
      {
+        char sdiff[32] = { 0 };
         snprintf( sdiff, 32, " (%.5f)", g_work->targetdiff );
         applog( LOG_WARNING, "Stratum difficulty set to %g%s", stratum_diff,
                         sdiff );
@@ -2959,7 +2959,7 @@ static void show_credits()
    printf("     An optimized Koto CPU miner with AES_NI and AVX2 and SHA extensions.\n\n");
    printf("     Feel free to leave me a tip if you're feeling generous :)\n");
    printf("       KOTO: k1GHJkvxLQocac94MFBbKAsdUvNbFdFWUyE\n");
-   printf("       XEM: NB3NDX-RBOLEJ-LPT6MP-6JAD4E-ZEOX5T-FLDG3W-R7JJ\n");
+   printf("       XEM: NB3NDXRBOLEJLPT6MP6JAD4EZEOX5TFLDG3WR7JJ\n");
    printf("       MONA: MPq54r8XTwtB2qmAeVqayy27ZCaPt845B6\n");
    printf("       NEET: NYaP7eEsDdALK5eHPZkYk1d8pBLyGvq9L1\n");
    printf("       BTC: 1HKWV5t4KGUwybVHNUaaY9TXFSoBvoaSiP\n");
