@@ -129,22 +129,19 @@ output from the miner showing the startup and any errors.
 Donations
 ---------
 
-`cpuminer-koto` has no fees, but if you're feeling generous, any donations are warmly welcome:
+If you have found this software more useful than other alternatives available,
+please, feel free to donate:
 
- KOTO: k1GHJkvxLQocac94MFBbKAsdUvNbFdFWUyE
+- **KOTO:** k1GHJkvxLQocac94MFBbKAsdUvNbFdFWUyE
+- **XEM:** NB3NDXRBOLEJLPT6MP6JAD4EZEOX5TFLDG3WR7JJ
+- **MONA:** MPq54r8XTwtB2qmAeVqayy27ZCaPt845B6
+- **NEET:** NYaP7eEsDdALK5eHPZkYk1d8pBLyGvq9L1
+- **BTC:** 1HKWV5t4KGUwybVHNUaaY9TXFSoBvoaSiP
+- **ETH:** 0xF17e490B391E17BE2D14BFfaA831ab8966d2e689
+- **LTC:** LNSEJzT8byYasZGd4f9c3DgtMbmexnXHdy
+- **BCH:** 1AVXvPBrNdhTdwBN5VQT5LSHa7sEzMSia4
 
- XEM: NB3NDXRBOLEJLPT6MP6JAD4EZEOX5TFLDG3WR7JJ
+After all, those morning cups of coffee need to come from somewhere, in order to
+enable writing efficient code :)
 
- MONA: MPq54r8XTwtB2qmAeVqayy27ZCaPt845B6
-
- NEET: NYaP7eEsDdALK5eHPZkYk1d8pBLyGvq9L1
-
- BTC: 1HKWV5t4KGUwybVHNUaaY9TXFSoBvoaSiP
-
- ETH: 0xF17e490B391E17BE2D14BFfaA831ab8966d2e689
-
- LTC: LNSEJzT8byYasZGd4f9c3DgtMbmexnXHdy
-
- BCH: 1AVXvPBrNdhTdwBN5VQT5LSHa7sEzMSia4
-
-Happy mining!
+Thanks and happy mining!

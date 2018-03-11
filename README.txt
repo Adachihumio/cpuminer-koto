@@ -46,4 +46,4 @@ BCH: 1AVXvPBrNdhTdwBN5VQT5LSHa7sEzMSia4
 After all, those morning cups of coffee need to come from somewhere, in order to
 enable efficient code writing :)
 
-Thanks!
+Thanks and happy mining!

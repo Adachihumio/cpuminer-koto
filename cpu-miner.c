@@ -2957,7 +2957,8 @@ static void show_credits()
 {
    printf("\n         **********  "PACKAGE_STRING"  *********** \n");
    printf("     An optimized Koto CPU miner with AES_NI and AVX2 and SHA extensions.\n\n");
-   printf("     Feel free to leave me a tip if you're feeling generous :)\n");
+   printf("     If you have found this software more useful than other alternatives\n");
+   printf("     available, please, feel free to donate!\n\n");
    printf("       KOTO: k1GHJkvxLQocac94MFBbKAsdUvNbFdFWUyE\n");
    printf("       XEM: NB3NDXRBOLEJLPT6MP6JAD4EZEOX5TFLDG3WR7JJ\n");
    printf("       MONA: MPq54r8XTwtB2qmAeVqayy27ZCaPt845B6\n");
@@ -2966,6 +2967,10 @@ static void show_credits()
    printf("       ETH: 0xF17e490B391E17BE2D14BFfaA831ab8966d2e689\n");
    printf("       LTC: LNSEJzT8byYasZGd4f9c3DgtMbmexnXHdy\n");
    printf("       BCH: 1AVXvPBrNdhTdwBN5VQT5LSHa7sEzMSia4\n\n");
+
+   printf("     After all, those morning cups of coffee need to come from\n");
+   printf("     somewhere, in order to enable writing efficient code :)\n\n");
+   printf("     Thanks and happy mining!\n\n");
 }
 
 bool check_cpu_capability ()
